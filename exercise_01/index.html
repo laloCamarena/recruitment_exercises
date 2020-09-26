@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count function</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Enter the console to call the function</h1>
+    <script>
+        // we create a generator function to track how many times the function has been called
+        function* count(i = 0) {
+            // we create an infinite loop so that our counter never resets
+            while (true) {
+                // we yield the value of i to stop the loop momentarily and return the current value
+                yield i;
+                i++
+            }
+            return i;
+        }
+
+        // we create a new constant to call the generator function
+        const getVal = count();
+        // we create the counter function that returns how many times the function has been called
+        const counter = () => getVal.next().value;
+    </script>
+</body>
+</html>
